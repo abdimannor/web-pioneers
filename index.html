@@ -3,47 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Pioneers — Tim Berners-Lee</title>
-  <meta name="description" content="A multi-page site about the pioneers of the internet: Tim Berners-Lee, Vint Cerf, and Google.">
-  <meta property="og:title" content="Web Pioneers — Tim Berners-Lee">
-  <meta property="og:description" content="A multi-page site about the pioneers of the internet: Tim Berners-Lee, Vint Cerf, and Google.">
+  <title>Web Pioneers</title>
+  <meta name="description" content="En liten webbhistorisk microsajt om idéerna och personerna som formade internet och webben.">
+  <link rel="canonical" href="https://abdimannor.github.io/web-pioneers/">
+  <meta property="og:title" content="Web Pioneers">
+  <meta property="og:description" content="En liten webbhistorisk microsajt om idéerna och personerna som formade internet och webben.">
   <meta property="og:url" content="https://abdimannor.github.io/web-pioneers/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Web Pioneers — Tim Berners-Lee">
-  <meta name="twitter:description" content="A multi-page site about the pioneers of the internet: Tim Berners-Lee, Vint Cerf, and Google.">
+  <meta name="twitter:title" content="Web Pioneers">
+  <meta name="twitter:description" content="En liten webbhistorisk microsajt om idéerna och personerna som formade internet och webben.">
+  <meta name="theme-color" content="#111827">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="index.html">Tim Berners-Lee</a></li>
-				<li><a href="vint.html">Vint Cerf</a></li>
-				<li><a href="google.html">Google</a></li>
-			</ul>
-		</nav>
-	</header>
-	<hr>
-	<div class="Textbox">
-		<h1>Timothy John "Tim" Berners-Lee</h1>
-		<p>Timothy John "Tim" Berners-Lee, KBE, FRS, född 8 juni 1955 i London i England, är skaparen av World Wide Web, en teknik som skapade förutsättningar för en bredare användning av Internet, och chef för World Wide Web Consortium.<br><br>
+  <header class="site-header">
+    <nav class="nav" aria-label="Huvudnavigation">
+      <a class="brand" href="index.html" aria-current="page">Web Pioneers</a>
+      <ul>
+        <li><a href="index.html" aria-current="page">Översikt</a></li>
+        <li><a href="vint.html">Vint Cerf</a></li>
+        <li><a href="google.html">Google</a></li>
+      </ul>
+    </nav>
+  </header>
 
-		Tim Berners-Lee tog kandidatexamen i fysik vid Queen's College vid Oxfords universitet i England 1976. Han arbetade därefter med programmering för olika företag innan han blev konsult. Under sex månaders tid 1980 arbetade han som konsult vid CERN, där han för eget bruk skrev ett program kallat Enquire för informationslagring och associering, vilket blev grunden till den idé som skulle utvecklas till att bli World Wide Web.
-		Efter några års arbete på annat håll antog Berners-Lee 1984 en forskartjänst vid CERN för att arbeta med distribuerade realtidssystem för systemhantering och inhämtning av data.<br><br>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Internet, webben och sökbarheten</p>
+      <h1>Tre steg mot den webben vi använder varje dag.</h1>
+      <p class="lead">Från protokollen som kopplade samman nätverk, till hypertexten som gjorde internet läsbart, till sökmotorerna som gjorde webben möjlig att navigera.</p>
+    </section>
 
-		Tim Berners-Lee tog kandidatexamen i fysik vid Queen's College vid Oxfords universitet i England 1976. Han arbetade därefter med programmering för olika företag innan han blev konsult. Under sex månaders tid 1980 arbetade han som konsult vid CERN, där han för eget bruk skrev ett program kallat Enquire för informationslagring och associering, vilket blev grunden till den idé som skulle utvecklas till att bli World Wide Web.
-		Efter några års arbete på annat håll antog Berners-Lee 1984 en forskartjänst vid CERN för att arbeta med distribuerade realtidssystem för systemhantering och inhämtning av data.Året 1989 lade Tim Berners-Lee fram ett förslag till ett globalt hypertextprojekt, World Wide Web, baserat på Enquire. Projektet inleddes följande år och var avsett att möjliggöra samarbete och kunskapsutbyte via ett nätverk av hypertextdokument. Den 20 december 1990 skapade han den första webbplatsen, en sida om CERN. Den 6 augusti 1991 gjorde han sidan och webben tillgänglig för allmänheten genom att berätta om sin skapelse i offentliga nyhetsgrupper.
-		Berners-Lee skrev även den första webbservern och den första webbläsaren (klienten; för Nextstep), som gjorde det möjligt att surfa runt mellan de fåtal webbsidor som då existerade. Den kunde både visa och redigera hypertext. Programmet gjordes först tillgängligt inom CERN och spreds sedan via Internet under 1991. I april 1993 beslöt CERN att släppa rättigheterna till WWW fria. Detta satte fart på webbens spridning och systemet kom att spridas över hela världen.
-		</p>
-	</div>
-	<div class="Bildbox">
-		<img src="tim.jpg" width="300" height="200" alt="Tim Berners-Lee">
-	</div>
+    <section class="timeline" aria-label="Webbhistorisk tidslinje">
+      <article>
+        <span>1974</span>
+        <h2>TCP/IP tar form</h2>
+        <p>Vint Cerf och Bob Kahn beskriver grunden för hur olika nätverk kan prata med varandra.</p>
+      </article>
+      <article>
+        <span>1989</span>
+        <h2>Webben föreslås</h2>
+        <p>Tim Berners-Lee formulerar idén om ett globalt hypertextsystem på CERN.</p>
+      </article>
+      <article>
+        <span>1998</span>
+        <h2>Sök blir infrastruktur</h2>
+        <p>Google visar hur länkstrukturer kan användas för att hitta relevant information i enorm skala.</p>
+      </article>
+    </section>
 
-	<footer>
-		<hr>
-		<p>&copy; Läs mer om <a href="https://sv.wikipedia.org/wiki/Tim_Berners-Lee">Tim Berners-Lee</a></p>
-	</footer>
+    <section class="profile-grid" aria-label="Profiler">
+      <article class="profile-card">
+        <img src="tim.jpg" alt="Tim Berners-Lee" loading="lazy">
+        <div>
+          <p class="eyebrow">World Wide Web</p>
+          <h2>Tim Berners-Lee</h2>
+          <p>Gjorde internet till ett nät av dokument, länkar och adresser som människor kunde läsa, dela och bygga vidare på.</p>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <img src="vint.jpg" alt="Vint Cerf" loading="lazy">
+        <div>
+          <p class="eyebrow">Internet protocols</p>
+          <h2>Vint Cerf</h2>
+          <p>Var med och skapade TCP/IP, en grundläggande idé bakom internet som ett nätverk av nätverk.</p>
+          <a href="vint.html">Läs profilen</a>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <img src="google.jpg" alt="Google-logotyp" loading="lazy">
+        <div>
+          <p class="eyebrow">Search</p>
+          <h2>Google</h2>
+          <p>Förändrade hur människor hittar information genom att göra webblänkar till signaler om relevans.</p>
+          <a href="google.html">Läs profilen</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Web Pioneers · ett vidareutvecklat lärprojekt av Mahad Abdullahi</p>
+  </footer>
 </body>
 </html>

@@ -21,16 +21,16 @@ A small editorial site profiling figures and ideas behind the modern internet: T
 - [x] Link pages through a shared navigation
 
 ### Phase 2: Portfolio Polish
-- [ ] Clean up visual hierarchy
-- [ ] Improve navigation and active page states
-- [ ] Add stronger metadata and canonical links
-- [ ] Improve mobile layout
+- [x] Clean up visual hierarchy
+- [x] Improve navigation and active page states
+- [x] Add stronger metadata and canonical links
+- [x] Improve mobile layout
 
 ### Phase 3: Content Upgrade
-- [ ] Add a timeline of web history
-- [ ] Add clearer context for why each figure matters
-- [ ] Add source links and further reading
-- [ ] Improve the home page from overview into editorial entry point
+- [x] Add a timeline of web history
+- [x] Add clearer context for why each figure matters
+- [x] Add source links and further reading
+- [x] Improve the home page from overview into editorial entry point
 
 ### Phase 4: Full Version
 - [ ] Turn the project into a small interactive web-history exhibit
