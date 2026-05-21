@@ -33,8 +33,8 @@ A small editorial site profiling figures and ideas behind the modern internet: T
 - [x] Improve the home page from overview into editorial entry point
 
 ### Phase 4: Full Version
-- [ ] Turn the project into a small interactive web-history exhibit
-- [ ] Add comparison cards for protocols, browsers, search, and standards
+- [x] Add a dedicated Tim Berners-Lee profile page
+- [x] Add comparison cards for web building blocks and standards
 - [ ] Add accessibility and performance checks
 - [ ] Add a stronger visual system
 

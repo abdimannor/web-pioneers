@@ -11,6 +11,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://abdimannor.github.io/web-pioneers/tim.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://abdimannor.github.io/web-pioneers/google.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

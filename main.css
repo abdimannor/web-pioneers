@@ -216,6 +216,89 @@ h1 {
   object-position: 50% 24%;
 }
 
+.profile-page img.portrait-tim {
+  object-position: 50% 28%;
+}
+
+.detail-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.detail-section h2 {
+  font-size: clamp(1.7rem, 4vw, 3rem);
+  line-height: 1.05;
+  margin-top: 8px;
+}
+
+.detail-copy,
+.concept-list {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.detail-copy p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.detail-copy p + p {
+  margin-top: 16px;
+}
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.fact-grid article,
+.concept-list article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.fact-grid article {
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.fact-grid span {
+  color: var(--accent);
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.fact-grid h2,
+.concept-list h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.fact-grid p,
+.concept-list p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.concept-list {
+  display: grid;
+  gap: 12px;
+}
+
+.concept-list article {
+  padding: 18px;
+}
+
 footer {
   border-top: 1px solid var(--line);
   color: var(--muted);
@@ -237,7 +320,9 @@ footer {
 
   .timeline,
   .profile-grid,
-  .profile-page {
+  .profile-page,
+  .detail-section,
+  .fact-grid {
     grid-template-columns: 1fr;
   }
 
@@ -248,5 +333,9 @@ footer {
 
   .profile-page img.portrait-vint {
     object-position: 50% 22%;
+  }
+
+  .profile-page img.portrait-tim {
+    object-position: 50% 24%;
   }
 }
