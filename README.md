@@ -35,8 +35,14 @@ A small editorial site profiling figures and ideas behind the modern internet: T
 ### Phase 4: Full Version
 - [x] Add a dedicated Tim Berners-Lee profile page
 - [x] Add comparison cards for web building blocks and standards
-- [ ] Add accessibility and performance checks
-- [ ] Add a stronger visual system
+- [x] Add accessibility and performance checks
+- [x] Add a stronger visual system
+
+## Possible Future Ideas
+
+- Interactive timeline filter
+- Glossary popovers for technical terms
+- More primary-source references for each profile
 
 ## License
 
