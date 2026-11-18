@@ -491,6 +491,42 @@ footer p {
   max-width: 640px;
 }
 
+.further-reading {
+  margin-top: 34px;
+}
+
+.further-reading h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.1;
+  margin: 8px 0 16px;
+}
+
+.further-reading ul {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.further-reading li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.6;
+  padding: 14px 18px;
+}
+
+.further-reading a {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.further-reading span {
+  color: var(--muted);
+  display: block;
+}
+
 .term {
   color: inherit;
   text-decoration: underline dotted var(--accent);
