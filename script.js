@@ -47,5 +47,54 @@
     filter.hidden = false;
   }
 
+  // Glossary popovers. The links point to the glossary list at the end of
+  // the page; where the Popover API exists they become buttons instead.
+  function initGlossary() {
+    if (!HTMLElement.prototype.hasOwnProperty("popover")) return;
+    var links = document.querySelectorAll("a.term[data-term]");
+    var made = {};
+
+    links.forEach(function (link, index) {
+      var entryId = link.getAttribute("data-term");
+      var entry = document.getElementById(entryId);
+      if (!entry) return;
+      var popId = "pop-" + entryId;
+
+      if (!made[popId]) {
+        var term = entry.querySelector("dt").textContent;
+        var pop = document.createElement("div");
+        pop.id = popId;
+        pop.className = "term-popover";
+        pop.setAttribute("popover", "");
+        pop.setAttribute("role", "dialog");
+        pop.setAttribute("aria-labelledby", popId + "-title");
+
+        var heading = document.createElement("h3");
+        heading.id = popId + "-title";
+        heading.textContent = term;
+        var text = document.createElement("p");
+        text.textContent = entry.querySelector("dd").textContent;
+        var close = document.createElement("button");
+        close.type = "button";
+        close.textContent = "Stäng";
+        close.setAttribute("popovertarget", popId);
+        close.setAttribute("popovertargetaction", "hide");
+
+        pop.append(heading, text, close);
+        document.body.appendChild(pop);
+        made[popId] = true;
+      }
+
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "term";
+      button.setAttribute("popovertarget", popId);
+      button.setAttribute("aria-haspopup", "dialog");
+      button.innerHTML = link.innerHTML;
+      link.replaceWith(button);
+    });
+  }
+
   initTimelineFilter();
+  initGlossary();
 })();
