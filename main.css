@@ -114,14 +114,115 @@ h1 {
   max-width: 700px;
 }
 
+.timeline-block {
+  margin-bottom: 22px;
+}
+
 .timeline {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  margin-bottom: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.timeline article,
+.timeline li[hidden] {
+  display: none;
+}
+
+.timeline-filter {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.timeline-filter[hidden] {
+  display: none;
+}
+
+.timeline-filter-label {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.timeline-filter div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.timeline-filter button {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.timeline-filter button:hover {
+  border-color: var(--accent);
+}
+
+.timeline-filter button[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.timeline-filter button:focus-visible,
+.timeline a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.timeline li.is-entering {
+  animation: timeline-in 0.25s ease both;
+}
+
+@keyframes timeline-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline li.is-entering {
+    animation: none;
+  }
+
+  .timeline-filter button {
+    transition: none;
+  }
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.timeline a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.timeline li,
 .profile-card,
 .profile-page {
   background: var(--surface);
@@ -130,7 +231,7 @@ h1 {
   box-shadow: var(--shadow);
 }
 
-.timeline article {
+.timeline li {
   padding: 20px;
 }
 
@@ -142,7 +243,7 @@ h1 {
   margin-bottom: 8px;
 }
 
-.timeline h2,
+.timeline h3,
 .profile-card h2 {
   font-size: 1.1rem;
   margin-bottom: 8px;

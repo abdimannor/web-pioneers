@@ -36,22 +36,50 @@
       <p class="lead">Från protokollen som kopplade samman nätverk, till hypertexten som gjorde information länkbar, till sökmotorerna som gjorde webben möjlig att orientera sig i.</p>
     </section>
 
-    <section class="timeline" aria-label="Webbhistorisk tidslinje">
-      <article>
-        <span>1974</span>
-        <h2>TCP/IP tar form</h2>
+    <section class="timeline-block" aria-labelledby="timeline-title">
+      <h2 id="timeline-title" class="visually-hidden">Webbhistorisk tidslinje</h2>
+      <div class="timeline-filter" data-timeline-filter hidden>
+        <p id="timeline-filter-label" class="timeline-filter-label">Visa:</p>
+        <div role="group" aria-labelledby="timeline-filter-label">
+          <button type="button" data-filter="all" aria-pressed="true">Allt</button>
+          <button type="button" data-filter="protokoll" aria-pressed="false">Protokoll · Vint Cerf</button>
+          <button type="button" data-filter="webben" aria-pressed="false">Webben · Tim Berners-Lee</button>
+          <button type="button" data-filter="sok" aria-pressed="false">Sök · Google</button>
+        </div>
+        <p class="visually-hidden" aria-live="polite" data-timeline-status></p>
+      </div>
+      <ol class="timeline" data-timeline>
+        <li data-theme="protokoll">
+          <span>1974</span>
+          <h3>TCP/IP tar form</h3>
           <p>Vint Cerf och Bob Kahn beskriver en modell där skilda nätverk kan utbyta data utan att byggas likadant.</p>
-      </article>
-      <article>
-        <span>1989</span>
-        <h2>Webben föreslås</h2>
+        </li>
+        <li data-theme="protokoll">
+          <span>1983</span>
+          <h3>ARPANET byter till TCP/IP</h3>
+          <p>Den 1 januari 1983 går ARPANET över till TCP/IP enligt övergångsplanen i <a href="https://www.rfc-editor.org/rfc/rfc801" rel="noopener">RFC 801</a>.</p>
+        </li>
+        <li data-theme="webben">
+          <span>1989</span>
+          <h3>Webben föreslås</h3>
           <p>Tim Berners-Lee formulerar idén om ett globalt hypertextsystem där dokument kan länka till varandra.</p>
-      </article>
-      <article>
-        <span>1998</span>
-        <h2>Sök blir infrastruktur</h2>
+        </li>
+        <li data-theme="webben">
+          <span>1993</span>
+          <h3>CERN släpper webben fritt</h3>
+          <p>Den 30 april 1993 <a href="https://home.cern/news/news/computing/30-years-free-and-open-web" rel="noopener">gör CERN webbens programvara fri</a> för vem som helst att använda och bygga vidare på.</p>
+        </li>
+        <li data-theme="webben">
+          <span>1994</span>
+          <h3>W3C grundas</h3>
+          <p>Berners-Lee grundar <a href="https://www.w3.org/about/history/" rel="noopener">World Wide Web Consortium</a> för att utveckla öppna webbstandarder.</p>
+        </li>
+        <li data-theme="sok">
+          <span>1998</span>
+          <h3>Sök blir infrastruktur</h3>
           <p>Google visar hur länkar, indexering och rankning kan göra en växande webb sökbar.</p>
-      </article>
+        </li>
+      </ol>
     </section>
 
     <section class="profile-grid" aria-label="Profiler">
@@ -131,5 +159,6 @@
   <footer>
     <p>Web Pioneers · sammanställd och formgiven av Mahad Abdullahi</p>
   </footer>
+  <script src="script.js" defer></script>
 </body>
 </html>
