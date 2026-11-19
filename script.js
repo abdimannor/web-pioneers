@@ -1,100 +1,89 @@
-// Web Pioneers: small progressive enhancements.
-// Without JavaScript every timeline entry is visible.
-(function () {
-  "use strict";
+// Web Pioneers: progressive enhancement only.
+// Without JavaScript every timeline entry is visible and glossary terms
+// are plain links to the glossary at the end of the page.
 
-  var reduceMotion = window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const STATUS = (shown, total) => `${shown} av ${total} händelser visas.`;
 
-  function initTimelineFilter() {
-    var filter = document.querySelector("[data-timeline-filter]");
-    var list = document.querySelector("[data-timeline]");
-    if (!filter || !list) return;
+function initTimelineFilter(root = document) {
+  const filter = root.querySelector("[data-timeline-filter]");
+  const list = root.querySelector("[data-timeline]");
+  if (!filter || !list) return;
 
-    var buttons = filter.querySelectorAll("button[data-filter]");
-    var items = list.querySelectorAll("li[data-theme]");
-    var status = filter.querySelector("[data-timeline-status]");
+  const buttons = [...filter.querySelectorAll("button[data-filter]")];
+  const items = [...list.querySelectorAll("li[data-theme]")];
+  const status = filter.querySelector("[data-timeline-status]");
 
-    function apply(value) {
-      var shown = 0;
-      items.forEach(function (item) {
-        var match = value === "all" || item.getAttribute("data-theme") === value;
-        var wasHidden = item.hidden;
-        item.hidden = !match;
-        if (match) {
-          shown += 1;
-          if (wasHidden && !reduceMotion) {
-            item.classList.remove("is-entering");
-            void item.offsetWidth;
-            item.classList.add("is-entering");
-          }
-        }
-      });
-      buttons.forEach(function (button) {
-        button.setAttribute("aria-pressed", String(button.getAttribute("data-filter") === value));
-      });
-      if (status) {
-        status.textContent = shown + " av " + items.length + " händelser visas.";
-      }
+  const apply = (value) => {
+    let shown = 0;
+    for (const item of items) {
+      const match = value === "all" || item.dataset.theme === value;
+      item.classList.toggle("is-entering", match && item.hidden);
+      item.hidden = !match;
+      if (match) shown += 1;
     }
+    for (const button of buttons) {
+      button.setAttribute("aria-pressed", String(button.dataset.filter === value));
+    }
+    if (status) status.textContent = STATUS(shown, items.length);
+  };
 
-    buttons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        apply(button.getAttribute("data-filter"));
-      });
-    });
+  filter.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-filter]");
+    if (button) apply(button.dataset.filter);
+  });
+  list.addEventListener("animationend", (event) => {
+    event.target.classList.remove("is-entering");
+  });
 
-    filter.hidden = false;
+  filter.hidden = false;
+}
+
+function buildPopover(entry, id) {
+  const pop = document.createElement("div");
+  pop.id = id;
+  pop.className = "term-popover";
+  pop.popover = "auto";
+  pop.setAttribute("role", "dialog");
+  pop.setAttribute("aria-labelledby", `${id}-title`);
+
+  const heading = document.createElement("h3");
+  heading.id = `${id}-title`;
+  heading.textContent = entry.querySelector("dt").textContent;
+
+  const text = document.createElement("p");
+  text.textContent = entry.querySelector("dd").textContent;
+
+  const close = document.createElement("button");
+  close.type = "button";
+  close.textContent = "Stäng";
+  close.setAttribute("popovertarget", id);
+  close.setAttribute("popovertargetaction", "hide");
+
+  pop.append(heading, text, close);
+  return pop;
+}
+
+// Where the Popover API exists, glossary links become buttons that open the
+// definition in place. Elsewhere the links keep jumping to the glossary.
+function initGlossary(root = document) {
+  if (!Object.hasOwn(HTMLElement.prototype, "popover")) return;
+
+  for (const link of root.querySelectorAll("a.term[data-term]")) {
+    const entry = document.getElementById(link.dataset.term);
+    if (!entry) continue;
+
+    const id = `pop-${link.dataset.term}`;
+    if (!document.getElementById(id)) document.body.append(buildPopover(entry, id));
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "term";
+    button.setAttribute("popovertarget", id);
+    button.setAttribute("aria-haspopup", "dialog");
+    button.append(...link.childNodes);
+    link.replaceWith(button);
   }
+}
 
-  // Glossary popovers. The links point to the glossary list at the end of
-  // the page; where the Popover API exists they become buttons instead.
-  function initGlossary() {
-    if (!HTMLElement.prototype.hasOwnProperty("popover")) return;
-    var links = document.querySelectorAll("a.term[data-term]");
-    var made = {};
-
-    links.forEach(function (link, index) {
-      var entryId = link.getAttribute("data-term");
-      var entry = document.getElementById(entryId);
-      if (!entry) return;
-      var popId = "pop-" + entryId;
-
-      if (!made[popId]) {
-        var term = entry.querySelector("dt").textContent;
-        var pop = document.createElement("div");
-        pop.id = popId;
-        pop.className = "term-popover";
-        pop.setAttribute("popover", "");
-        pop.setAttribute("role", "dialog");
-        pop.setAttribute("aria-labelledby", popId + "-title");
-
-        var heading = document.createElement("h3");
-        heading.id = popId + "-title";
-        heading.textContent = term;
-        var text = document.createElement("p");
-        text.textContent = entry.querySelector("dd").textContent;
-        var close = document.createElement("button");
-        close.type = "button";
-        close.textContent = "Stäng";
-        close.setAttribute("popovertarget", popId);
-        close.setAttribute("popovertargetaction", "hide");
-
-        pop.append(heading, text, close);
-        document.body.appendChild(pop);
-        made[popId] = true;
-      }
-
-      var button = document.createElement("button");
-      button.type = "button";
-      button.className = "term";
-      button.setAttribute("popovertarget", popId);
-      button.setAttribute("aria-haspopup", "dialog");
-      button.innerHTML = link.innerHTML;
-      link.replaceWith(button);
-    });
-  }
-
-  initTimelineFilter();
-  initGlossary();
-})();
+initTimelineFilter();
+initGlossary();
