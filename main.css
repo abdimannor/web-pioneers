@@ -4,7 +4,7 @@
 
 @layer reset {
   *, *::before, *::after { box-sizing: border-box; }
-  body, h1, h2, h3, p, dl, dd, ol, ul, figure { margin: 0; }
+  body, h1, h2, h3, p, dl, dd, ol, ul { margin: 0; }
   ol[class], ul { padding: 0; list-style: none; }
   img { display: block; max-width: 100%; height: auto; }
   button { font: inherit; color: inherit; }
