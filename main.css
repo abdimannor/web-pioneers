@@ -13,11 +13,12 @@
 @layer tokens {
   :root {
     color-scheme: light dark;
-    --paper: #f5f2eb;
-    --surface: #fbf9f4;
-    --ink: #18171a;
-    --muted: #57534c;
-    --rule: #d8d1c3;
+    /* Cool newsprint: blue-grey paper, near-black ink, darker grey surfaces. */
+    --paper: #e5eaf0;
+    --surface: #d6dde6;
+    --ink: #10141a;
+    --muted: #444e5a;
+    --rule: #b3bdc9;
     --accent: #9a2a1d;
     --protokoll: #2d5c4f;
     --webben: #9a2a1d;
@@ -47,12 +48,12 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #151413;
-      --surface: #1d1c1a;
-      --ink: #ece7dc;
-      --muted: #b0a999;
-      --rule: #3a3732;
-      --accent: #e08a73;
+      --paper: #0c1119;
+      --surface: #151d29;
+      --ink: #e3e9f1;
+      --muted: #a0adbd;
+      --rule: #2b3646;
+      --accent: #ec9078;
       --protokoll: #8fc4b2;
       --webben: #e08a73;
       --sok: #9db6e3;
@@ -262,7 +263,7 @@
     padding: var(--space-m);
     box-shadow: 0 1.5rem 3rem -1rem rgb(0 0 0 / 0.3);
   }
-  .term-popover::backdrop { background: rgb(24 23 26 / 0.25); }
+  .term-popover::backdrop { background: rgb(16 20 26 / 0.3); }
   .term-popover h3 { margin-block-end: var(--space-xs); }
   .term-popover p { color: var(--muted); font-size: 1rem; }
   .term-popover button {
