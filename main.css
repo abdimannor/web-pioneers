@@ -104,6 +104,7 @@
     gap: var(--space-m);
     grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min, 16rem)), 1fr));
   }
+  .timeline, .fact-grid { --min: 19rem; }
   .comparison-grid { --min: 13rem; }
   .glossary dl { --min: 22rem; }
 
@@ -227,14 +228,14 @@
   .portrait-vint { object-position: 50% 24%; }
 
   .detail-section h2 { font-size: var(--step-3); }
-  .detail-copy { display: grid; gap: var(--space-s); max-inline-size: var(--measure); }
+  .detail-copy { display: grid; gap: var(--space-s); align-content: start; max-inline-size: var(--measure); }
   .detail-copy p:first-child::first-letter {
     float: inline-start;
     font: 600 3.4em / 0.85 var(--serif-display);
     color: var(--accent);
     margin: 0.06em 0.08em 0 0;
   }
-  .concept-list { display: grid; max-inline-size: var(--measure); }
+  .concept-list { display: grid; align-content: start; max-inline-size: var(--measure); }
   .concept-list article { border-block-start: 1px solid var(--rule); padding-block: var(--space-s); }
   .concept-list article:last-child { border-block-end: 1px solid var(--rule); }
 
