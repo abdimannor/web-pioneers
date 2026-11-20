@@ -84,7 +84,7 @@ function init() {
     const chunks = [];
     for (let i = 0; i < text.length; i += CHUNK) chunks.push(text.slice(i, i + CHUNK));
     return chunks.map((chunk, i) => {
-      const route = ROUTES[(i * 5 + 0) % ROUTES.length];
+      const route = ROUTES[(i * 5) % ROUTES.length];
       const legs = [];
       let start = i * GAP;
       for (let h = 0; h < route.length - 1; h++) {
@@ -121,7 +121,9 @@ function init() {
         p.node.classList.add("is-done");
         const li = document.createElement("li");
         li.style.setProperty("--hue", (p.n - 1) * 47 % 360);
-        li.innerHTML = `<span class="pk-n"></span><span class="pk-c"></span>`;
+        li.append(document.createElement("span"), document.createElement("span"));
+        li.firstChild.className = "pk-n";
+        li.lastChild.className = "pk-c";
         li.firstChild.textContent = p.n;
         li.lastChild.textContent = p.chunk.replaceAll(" ", "\u2423");
         tray.append(li);
@@ -135,7 +137,7 @@ function init() {
       root.querySelector(".pk-order").textContent = `Ankomstordning: ${order}. TCP sorterar efter nummer.`;
       status.textContent = "Alla paket har kommit fram och meddelandet är ihopsatt.";
       [...tray.children]
-        .sort((a, b) => a.firstChild.textContent - b.firstChild.textContent)
+        .sort((a, b) => Number(a.firstChild.textContent) - Number(b.firstChild.textContent))
         .forEach((li, i) => { li.style.setProperty("--slot", i); tray.append(li); });
       tray.classList.add("is-sorted");
       stepBtn.disabled = true;
