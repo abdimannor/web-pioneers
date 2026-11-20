@@ -361,3 +361,54 @@
   .pk-packet circle { r: 22px; }
   .pk-packet text { font-size: 22px; }
 }
+
+/* Hypertext mini-demo (tim.html) */
+.ht-demo {
+  inline-size: min(100% - 2 * var(--gutter), var(--page));
+  margin: var(--space-xl) auto;
+  display: grid; gap: var(--space-m);
+  padding: var(--space-m);
+  border: 2px solid var(--ink); border-radius: 0.5rem;
+  background: var(--surface);
+}
+.ht-demo[hidden] { display: none; }
+.ht-demo h2 { font-family: var(--serif-display); font-size: var(--step-3); line-height: 1.05; }
+.ht-demo .eyebrow { color: var(--webben); }
+.ht-caption { color: var(--muted); max-inline-size: var(--measure); margin-block-start: var(--space-xs); }
+.ht-graph { inline-size: 100%; block-size: auto; font-family: var(--sans); }
+.ht-edges line { stroke: var(--rule); stroke-width: 2; stroke-dasharray: 4 5; transition: stroke 0.3s; }
+.ht-edges line.is-walked { stroke: var(--webben); stroke-width: 3; stroke-dasharray: none; }
+.ht-node { cursor: pointer; }
+.ht-node rect { fill: var(--paper); stroke: var(--rule); stroke-width: 2; transition: fill 0.3s, stroke 0.3s; }
+.ht-node text { fill: var(--ink); font-size: 14px; font-weight: 600; }
+.ht-node.is-next rect { stroke: var(--webben); }
+.ht-node.is-seen rect { fill: color-mix(in srgb, var(--webben) 18%, var(--paper)); }
+.ht-node.is-here rect { fill: var(--webben); stroke: var(--webben); }
+.ht-node.is-here text { fill: var(--paper); }
+.ht-panel { display: grid; gap: var(--space-xs); align-content: start; }
+.ht-doc h3 { font-family: var(--serif-display); font-size: var(--step-2); }
+.ht-doc h3:focus { outline: none; }
+.ht-doc h3:focus-visible { outline: 3px solid var(--sok); outline-offset: 3px; }
+.ht-doc p { max-inline-size: var(--measure); margin-block-start: var(--space-xs); }
+.ht-label { font: 600 0.9rem var(--sans); color: var(--muted); }
+.ht-doc ul { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; list-style: none; margin-block-start: 0.4rem; }
+.ht-doc a {
+  display: inline-block; padding: 0.4rem 0.8rem; border: 1px solid var(--webben); border-radius: 99px;
+  color: var(--webben); font: 600 0.95rem var(--sans); text-decoration: none;
+}
+.ht-doc a:hover { background: var(--webben); color: var(--paper); }
+.ht-path { font: 0.95rem var(--sans); color: var(--muted); }
+.ht-path span:first-child { font-weight: 600; }
+.ht-demo button {
+  justify-self: start; padding: 0.5rem 1rem; font: 600 0.95rem var(--sans); cursor: pointer;
+  background: transparent; color: var(--ink); border: 1px solid var(--ink); border-radius: 0.3rem;
+}
+.ht-demo button:disabled { opacity: 0.4; cursor: default; }
+.ht-demo :focus-visible { outline: 3px solid var(--sok); outline-offset: 2px; }
+@media (min-width: 60rem) {
+  .ht-demo { grid-template-columns: 7fr 5fr; }
+  .ht-head { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ht-edges line, .ht-node rect { transition: none; }
+}
