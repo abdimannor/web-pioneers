@@ -349,3 +349,15 @@
 @media (prefers-reduced-motion: reduce) {
   .pk-tray li, .pk-tray.is-sorted li { animation: none; }
 }
+
+@media (max-width: 40rem) {
+  .packet-demo { padding: var(--space-s); }
+  .pk-net { margin-inline: calc(-1 * var(--space-s)); inline-size: calc(100% + 2 * var(--space-s)); }
+  .pk-links line { stroke-width: 6; }
+  .pk-router circle { r: 34px; }
+  .pk-router text { font-size: 26px; }
+  .pk-host rect { x: -50px; y: -34px; width: 100px; height: 68px; }
+  .pk-host-label { font-size: 15px; }
+  .pk-packet circle { r: 22px; }
+  .pk-packet text { font-size: 22px; }
+}
