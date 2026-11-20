@@ -66,6 +66,11 @@
           <h3>ARPANET byter till TCP/IP</h3>
           <p>Den 1 januari 1983 går ARPANET över till TCP/IP enligt övergångsplanen i <a href="https://www.rfc-editor.org/rfc/rfc801" rel="noopener">RFC 801</a>.</p>
         </li>
+        <li data-theme="protokoll">
+          <time datetime="1987-11">1987</time>
+          <h3>DNS standardiseras</h3>
+          <p>I november 1987 publiceras <a href="https://www.rfc-editor.org/rfc/rfc1034" rel="noopener">RFC 1034</a> och <a href="https://www.rfc-editor.org/rfc/rfc1035" rel="noopener">RFC 1035</a>, som beskriver Domain Name System: namnsystemet som översätter värdnamn till IP-adresser.</p>
+        </li>
         <li data-theme="webben">
           <time datetime="1989">1989</time>
           <h3>Webben föreslås</h3>
@@ -77,6 +82,11 @@
           <p>Den 30 april 1993 <a href="https://home.cern/news/news/computing/30-years-free-and-open-web" rel="noopener">gör CERN webbens programvara fri</a> för vem som helst att använda och bygga vidare på.</p>
         </li>
         <li data-theme="webben">
+          <time datetime="1993-12">1993</time>
+          <h3>Mosaic når en bred publik</h3>
+          <p>Enligt <a href="https://www.ncsa.illinois.edu/research/project-highlights/ncsa-mosaic/" rel="noopener">NCSA</a> var Mosaic den första publicerade webbläsaren som automatiskt visade bilder tillsammans med text. I december 1993 laddades den ner mer än 5 000 gånger i månaden.</p>
+        </li>
+        <li data-theme="webben">
           <time datetime="1994">1994</time>
           <h3>W3C grundas</h3>
           <p>Berners-Lee grundar <a href="https://www.w3.org/about/history/" rel="noopener">World Wide Web Consortium</a> för att utveckla öppna webbstandarder.</p>
@@ -85,6 +95,11 @@
           <time datetime="1998">1998</time>
           <h3>Sök blir infrastruktur</h3>
           <p>Google visar hur länkar, indexering och rankning kan göra en växande webb sökbar.</p>
+        </li>
+        <li data-theme="sok">
+          <time datetime="1998">1998</time>
+          <h3>Artikeln om Google och PageRank</h3>
+          <p>Sergey Brin och Lawrence Page beskriver prototypen Google i <a href="https://doi.org/10.1016/S0169-7552(98)00110-X" rel="noopener">The Anatomy of a Large-Scale Hypertextual Web Search Engine</a>, en sökmotor som använder länkstrukturen i hypertext för att ge bättre sökresultat.</p>
         </li>
       </ol>
     </section>
@@ -155,54 +170,54 @@
         <p class="eyebrow">Steg för steg</p>
         <h2 id="walk-title">Vad händer när du öppnar en webbsida?</h2>
       </div>
-      <p class="walk-intro">Sju steg från adressfältet till en färdig sida. Färgen visar vilket av sidans tre lager steget hör till: protokoll, dokument eller navigering.</p>
+      <p class="walk-intro">Sju steg från adressfältet till en färdig sida. Färgen visar vilket av tre lager steget hör till: protokoll, dokument eller navigering.</p>
       <ol class="wk-list">
         <li id="wk-url" class="wk-step" data-tone="webben">
           <p class="wk-layer">1. Dokument</p>
           <h3>URL:en skrivs in</h3>
-          <p>Webbläsaren delar upp adressen i delar: schema (till exempel https), värdnamn och sökväg. Värdnamnet säger vilken dator som ska kontaktas, sökvägen vilket dokument som efterfrågas.</p>
+          <p>Webbläsaren delar upp adressen i dess beståndsdelar: schema (till exempel https), värdnamn och sökväg. Värdnamnet säger vilken dator som ska kontaktas, sökvägen vilken resurs som efterfrågas.</p>
           <p class="wk-tie"><a href="tim.html">URL:er hör till webbens grund, se Tim Berners-Lee.</a></p>
           <p class="wk-src">Källor: <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986: URI-syntax</a></p>
         </li>
         <li id="wk-dns" class="wk-step" data-tone="protokoll">
           <p class="wk-layer">2. Protokoll</p>
           <h3>DNS-uppslag</h3>
-          <p>Datorer på internet nås med IP-adresser, inte namn. Webbläsaren frågar därför DNS, internets namnsystem, vilken IP-adress värdnamnet har.</p>
+          <p>Datorer på internet nås med IP-adresser, inte namn. Webbläsaren slår därför upp värdnamnet i DNS, internets namnsystem, för att få fram dess IP-adress.</p>
           <p class="wk-tie"><a href="vint.html">DNS bygger på internets protokoll, se Vint Cerf.</a></p>
           <p class="wk-src">Källor: <a href="https://www.rfc-editor.org/rfc/rfc1034">RFC 1034: DNS-begrepp</a>, <a href="https://www.rfc-editor.org/rfc/rfc1035">RFC 1035: DNS-specifikation</a></p>
         </li>
         <li id="wk-tcp" class="wk-step" data-tone="protokoll">
           <p class="wk-layer">3. Protokoll</p>
           <h3>TCP-anslutning</h3>
-          <p>Webbläsaren öppnar en TCP-anslutning till IP-adressen med en trevägshandskakning: SYN, SYN-ACK, ACK. Med https följer en TLS-handskakning som krypterar trafiken. Nyare HTTP/3 använder QUIC över UDP i stället för TCP.</p>
+          <p>Webbläsaren öppnar en TCP-anslutning till IP-adressen med en trevägshandskakning: SYN, SYN-ACK, ACK. Med https följer en TLS-handskakning där parterna kommer överens om nycklarna som krypterar trafiken. Den nyare versionen HTTP/3 använder QUIC över UDP i stället för TCP.</p>
           <p class="wk-tie"><a href="vint.html">TCP/IP är Vint Cerfs del av historien.</a></p>
           <p class="wk-src">Källor: <a href="https://www.rfc-editor.org/rfc/rfc9293">RFC 9293: TCP</a>, <a href="https://www.rfc-editor.org/rfc/rfc8446">RFC 8446: TLS 1.3</a>, <a href="https://www.rfc-editor.org/rfc/rfc9114">RFC 9114: HTTP/3</a></p>
         </li>
         <li id="wk-req" class="wk-step" data-tone="webben">
           <p class="wk-layer">4. Dokument</p>
           <h3>HTTP-förfrågan</h3>
-          <p>Över anslutningen skickar webbläsaren en HTTP-förfrågan, till exempel GET med sökvägen och värdnamnet i fältet Host.</p>
+          <p>Över anslutningen skickar webbläsaren en HTTP-förfrågan, till exempel metoden GET med sökvägen, och värdnamnet i rubrikfältet Host.</p>
           <p class="wk-tie"><a href="tim.html">HTTP skapades för webben, se Tim Berners-Lee.</a></p>
           <p class="wk-src">Källor: <a href="https://www.rfc-editor.org/rfc/rfc9110">RFC 9110: HTTP-semantik</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages">MDN: HTTP-meddelanden</a></p>
         </li>
         <li id="wk-res" class="wk-step" data-tone="webben">
           <p class="wk-layer">5. Dokument</p>
           <h3>HTTP-svar</h3>
-          <p>Servern svarar med en statuskod (200 betyder OK, 404 att resursen inte finns), rubrikfält som Content-Type och själva innehållet, ofta ett HTML-dokument.</p>
-          <p class="wk-tie"><a href="tim.html">Servern och webbläsaren talar samma öppna protokoll.</a></p>
+          <p>Servern svarar med en statuskod (200 betyder OK, 404 att servern inte hittade resursen), rubrikfält som Content-Type och själva innehållet, ofta ett HTML-dokument.</p>
+          <p class="wk-tie"><a href="tim.html">Servern och webbläsaren använder samma öppna protokoll.</a></p>
           <p class="wk-src">Källor: <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">RFC 9110: statuskoder</a></p>
         </li>
         <li id="wk-html" class="wk-step" data-tone="webben">
           <p class="wk-layer">6. Dokument</p>
           <h3>HTML tolkas</h3>
-          <p>Webbläsaren tolkar HTML till ett dokumentträd (DOM). Stilmallar, bilder och skript som dokumentet pekar på hämtas med nya förfrågningar, och sidan ritas upp.</p>
+          <p>Webbläsaren tolkar HTML-koden och bygger ett dokumentträd (DOM). Stilmallar, bilder och skript som dokumentet pekar på hämtas med nya förfrågningar, och sidan ritas upp.</p>
           <p class="wk-tie"><a href="tim.html">HTML är webbens dokumentformat, se Tim Berners-Lee.</a></p>
           <p class="wk-src">Källor: <a href="https://www.w3.org/html/">W3C: HTML</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work">MDN: Hur webbläsare fungerar</a></p>
         </li>
         <li id="wk-links" class="wk-step" data-tone="sok">
           <p class="wk-layer">7. Navigering</p>
           <h3>Länkar följs</h3>
-          <p>En länk är en ny URL. Klickar du på den börjar allt om från första steget. Sökmotorer gör likadant i stor skala: de följer länkar för att hitta sidor, och PageRank använde länkarna för att väga sidor mot varandra.</p>
+          <p>En länk pekar på en ny URL. Klickar du på den börjar processen om från första steget. Sökmotorer gör likadant i stor skala: de följer länkar för att hitta sidor, och PageRank använde länkarna för att väga sidor mot varandra.</p>
           <p class="wk-tie"><a href="google.html">Att följa länkar i stor skala är Googles del av historien.</a></p>
           <p class="wk-src">Källor: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a">MDN: elementet a</a></p>
         </li>

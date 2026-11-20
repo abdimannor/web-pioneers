@@ -170,7 +170,7 @@ function init() {
     packets = plan(text);
     total = Math.max(...packets.map((p) => p.arrive));
     t = 0;
-    status.textContent = `Meddelandet delas i ${packets.length} paket med ${CHUNK} tecken var.`;
+    status.textContent = `Meddelandet delas i ${packets.length} paket om ${CHUNK} tecken vardera.`;
     stepBtn.disabled = !modeBox.checked;
     render();
     if (!modeBox.checked) {
