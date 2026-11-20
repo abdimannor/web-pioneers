@@ -51,8 +51,13 @@ function init() {
   const status = root.querySelector(".pk-status");
   const stepBtn = root.querySelector("[data-pk-step]");
   const modeBox = root.querySelector("#pk-steps");
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-  modeBox.checked = reduce.matches;
+  // Step mode follows the site's motion setting (motion.js) until changed here.
+  const still = () => document.documentElement.dataset.motion === "off";
+  modeBox.checked = still();
+  document.addEventListener("motionchange", () => {
+    modeBox.checked = still();
+    modeBox.dispatchEvent(new Event("change"));
+  });
 
   // Draw the network once.
   const links = el("g", { class: "pk-links" });

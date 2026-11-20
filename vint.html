@@ -21,6 +21,7 @@
   <meta name="theme-color" content="#111827">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="main.css">
+  <script src="motion.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -137,8 +138,8 @@
       </svg>
       <p class="pk-status" role="status"></p>
       <div class="pk-recv">
-        <h3>Hos mottagaren</h3>
-        <ol class="pk-tray" aria-label="Mottagna paket"></ol>
+        <h3 id="pk-recv-title">Hos mottagaren</h3>
+        <ol class="pk-tray" aria-labelledby="pk-recv-title"></ol>
         <p class="pk-order"></p>
         <p class="pk-result">Ihopsatt: <output class="pk-out"></output></p>
       </div>
@@ -172,9 +173,6 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; 2026 Mahad Abdullahi</p>
-  </footer>
   <script type="module" src="script.js"></script>
   <script type="module" src="packets.js"></script>
 </body>
