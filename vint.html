@@ -115,6 +115,34 @@
         </article>
       </div>
     </section>
+    <section class="packet-demo" id="paket" aria-labelledby="paket-title" hidden>
+      <div class="pk-head">
+        <p class="eyebrow">Prova själv</p>
+        <h2 id="paket-title">Ett meddelande, många vägar.</h2>
+        <p class="pk-caption">Meddelandet delas upp i numrerade paket. Varje paket skickas för sig, och routrarna kan skicka dem längs olika vägar. Därför kan de komma fram i fel ordning. Hos mottagaren använder TCP numren för att sätta ihop meddelandet i rätt ordning. (I verkligheten räknar TCP:s sekvensnummer byte, inte hela paket.)</p>
+      </div>
+      <form class="pk-form">
+        <label for="pk-msg">Skriv ett meddelande</label>
+        <div class="pk-row">
+          <input id="pk-msg" name="msg" type="text" maxlength="24" placeholder="Hej från ARPANET!" autocomplete="off">
+          <button type="submit">Skicka</button>
+        </div>
+        <div class="pk-row">
+          <label class="pk-toggle"><input type="checkbox" id="pk-steps"> Stega i egen takt</label>
+          <button type="button" data-pk-step disabled>Nästa steg</button>
+        </div>
+      </form>
+      <svg class="pk-net" viewBox="0 0 800 360" role="img" aria-labelledby="pk-net-title">
+        <title id="pk-net-title">Nätverk med avsändare, fem routrar och mottagare. Paketen visas som numrerade cirklar.</title>
+      </svg>
+      <p class="pk-status" role="status"></p>
+      <div class="pk-recv">
+        <h3>Hos mottagaren</h3>
+        <ol class="pk-tray" aria-label="Mottagna paket"></ol>
+        <p class="pk-order"></p>
+        <p class="pk-result">Ihopsatt: <output class="pk-out"></output></p>
+      </div>
+    </section>
     <section class="further-reading" aria-labelledby="further-title">
       <p class="eyebrow">Vidare läsning</p>
       <h2 id="further-title">Primärkällor och auktoritativa källor</h2>
@@ -148,5 +176,6 @@
     <p>&copy; 2026 Mahad Abdullahi</p>
   </footer>
   <script type="module" src="script.js"></script>
+  <script type="module" src="packets.js"></script>
 </body>
 </html>

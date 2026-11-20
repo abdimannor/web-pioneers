@@ -115,6 +115,19 @@
         </article>
       </div>
     </section>
+    <section class="ht-demo" id="hypertext" aria-labelledby="ht-title" hidden>
+      <div class="ht-head">
+        <p class="eyebrow">Prova själv</p>
+        <h2 id="ht-title">Dokument som länkar till varandra.</h2>
+        <p class="ht-caption">Varje ruta är ett dokument med text från den här sidan. Följ länkarna och se hur du kan hoppa mellan dokumenten i stället för att läsa i en fast ordning.</p>
+      </div>
+      <svg class="ht-graph" viewBox="0 0 600 340" aria-hidden="true"></svg>
+      <div class="ht-panel">
+        <article class="ht-doc" aria-live="polite"></article>
+        <p class="ht-path"><span>Din väg:</span> <span class="ht-trail"></span></p>
+        <button type="button" data-ht-back disabled>Tillbaka</button>
+      </div>
+    </section>
     <section class="further-reading" aria-labelledby="further-title">
       <p class="eyebrow">Vidare läsning</p>
       <h2 id="further-title">Primärkällor och auktoritativa källor</h2>
@@ -155,5 +168,6 @@
     <p>&copy; 2026 Mahad Abdullahi</p>
   </footer>
   <script type="module" src="script.js"></script>
+  <script type="module" src="hypertext.js"></script>
 </body>
 </html>
