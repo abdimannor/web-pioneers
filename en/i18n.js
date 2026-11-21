@@ -2,11 +2,7 @@
 // hypertext.js, packets.js). Loaded before them on the English pages; the
 // Swedish defaults live in each script.
 window.WP_I18N = {
-  motion: {
-    label: 'Animations: ', on: 'on', off: 'off', region: 'Animations',
-    notice: 'Your device asks for reduced motion, so the animations are paused.',
-    play: '▶ Play the animations', keep: 'Keep still',
-  },
+  motion: { pause: 'Pause motion', play: 'Play motion' },
   script: {
     status: (shown, total) => `${shown} of ${total} events shown.`,
     close: 'Close',
