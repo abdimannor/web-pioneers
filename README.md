@@ -2,7 +2,7 @@
 
 Live: [abdimannor.github.io/web-pioneers](https://abdimannor.github.io/web-pioneers/)
 
-A small Swedish-language site about three layers of the internet we use every day, told through the people and the company behind them. Every date on it points to a source.
+A small site, written in Swedish with an English edition under [`/en/`](https://abdimannor.github.io/web-pioneers/en/), about three layers of the internet we use every day, told through the people and the company behind them. Every date on it points to a source.
 
 ## Why these three
 
