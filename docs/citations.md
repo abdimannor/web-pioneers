@@ -1,6 +1,6 @@
 # Citation audit
 
-Every factual claim on the four Swedish pages (and their English twins under `en/`), checked against a source in November 2026. Each source was fetched with curl and the quoted wording below was found in it. Archive links are existing Wayback Machine snapshots found through `https://archive.org/wayback/available` (no new archiving was triggered).
+Every factual claim on the four Swedish pages (and their English twins under `en/`), checked against a source in November 2026. Each source was fetched with curl and the quoted wording below was found in it. One exception: CERN's "A short history of the Web" returned 404 at its old address (`home.cern/science/computing/birth-web/short-history-web`), so it was first checked only through Wayback Machine snapshots; it was later found at its current address (`https://home.cern/science/computing/the-birth-of-the-web/short-history-web/`), where the quoted wording was confirmed, and both pages and this audit now cite that address. Archive links are existing Wayback Machine snapshots found through `https://archive.org/wayback/available` (no new archiving was triggered).
 
 **Summary:** 34 claims audited. 29 confirmed, 0 corrected, 5 unverified (interpretive statements with no single source; left on the page unchanged and listed below).
 
