@@ -33,3 +33,33 @@ for (const file of all) {
     expect(r.problems).toEqual([]);
   });
 }
+
+
+for (const file of all) {
+  test(`${file} has unique ids`, async ({ page }) => {
+    await page.goto(file);
+    const dupes = await page.evaluate(() => {
+      const seen = new Map();
+      for (const el of document.querySelectorAll('[id]')) seen.set(el.id, (seen.get(el.id) || 0) + 1);
+      return [...seen].filter(([, n]) => n > 1).map(([id]) => id);
+    });
+    expect(dupes).toEqual([]);
+  });
+}
+
+for (const file of pages) {
+  test(`${file} and en/${file} cite the same sources the same number of times`, async ({ page }) => {
+    const count = async (f) => {
+      await page.goto(f);
+      return page.evaluate(() => ({
+        refs: [...document.querySelectorAll('a.fn-ref')].map((a) => a.getAttribute('href')),
+        entries: document.querySelectorAll('.sources li[id]').length,
+      }));
+    };
+    const sv = await count(file);
+    const en = await count(`en/${file}`);
+    expect(en.refs.length).toBe(sv.refs.length);
+    expect(en.refs).toEqual(sv.refs);
+    expect(en.entries).toBe(sv.entries);
+  });
+}
