@@ -33,7 +33,7 @@ test('quiet controls: language then motion, named in the page language', async (
   await page.goto('./');
   const controls = page.locator('.site-controls > *');
   await expect(controls).toHaveCount(2);
-  await expect(controls.nth(0)).toHaveAccessibleName('Byt till engelska');
+  await expect(controls.nth(0)).toHaveAccessibleName('Byt till engelska, EN');
   await expect(controls.nth(0)).toHaveAttribute('hreflang', 'en');
   await expect(controls.nth(1)).toHaveAccessibleName('Pausa rörelse');
   const box = await controls.nth(1).boundingBox();
@@ -41,7 +41,7 @@ test('quiet controls: language then motion, named in the page language', async (
   expect(Math.round(box.height)).toBe(34);
   await controls.nth(0).click();
   await expect(page).toHaveURL(/\/en\/index\.html$/);
-  await expect(page.locator('.lang-switch')).toHaveAccessibleName('Switch to Swedish');
+  await expect(page.locator('.lang-switch')).toHaveAccessibleName('Switch to Swedish, SV');
   await expect(page.locator('.lang-switch span[lang]')).toHaveAttribute('lang', 'sv');
   await expect(page.locator(toggle)).toHaveAccessibleName('Pause motion');
 });
