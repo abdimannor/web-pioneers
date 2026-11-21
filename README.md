@@ -1,8 +1,8 @@
 # Web Pioneers
 
-A small Swedish-language site about three layers of the internet we use every day, told through the people and the company behind them.
-
 Live: [abdimannor.github.io/web-pioneers](https://abdimannor.github.io/web-pioneers/)
+
+A small Swedish-language site about three layers of the internet we use every day, told through the people and the company behind them. Every date on it points to a source.
 
 ## Why these three
 
@@ -14,25 +14,28 @@ The site's own framing is "Tre steg mot den webben vi använder varje dag": thre
 
 ## The pages
 
-- `index.html`: the overview. A timeline from 1974 to 1998, one card per profile, the four layers side by side (protocols, documents, navigation, standards) and a suggested reading order.
-- `tim.html`: Tim Berners-Lee. Why he matters, key dates from 1955 to the founding of W3C in 1994, and the building blocks HTML, HTTP, URL and open standards.
-- `vint.html`: Vint Cerf. The problem of connecting unlike networks, the move to TCP/IP, and the building blocks TCP, IP, packet switching and open interconnection.
+- `index.html`: the overview. A timeline from 1974 to 1998, one card per profile, the four layers side by side (protocols, documents, navigation, standards), "Vad händer när du öppnar en webbsida?" and a suggested reading order.
+- `vint.html`: Vint Cerf. The problem of connecting unlike networks, the move to TCP/IP, and TCP, IP, packet switching and open interconnection.
+- `tim.html`: Tim Berners-Lee. Key dates from 1955 to the founding of W3C in 1994, and HTML, HTTP, URL and open standards.
 - `google.html`: Google. Search as the web's navigation layer, PageRank, crawling, indexing and ranking, and the question of who gets to be visible.
 
-Each profile ends with a list of primary and authoritative sources. Every page ends with a short glossary of the technical terms it uses.
+Each profile ends with primary and authoritative sources, and every page ends with a glossary of the terms it uses.
 
-## Interactive parts
+## Things to try
 
-Both work without JavaScript; the script only adds to what is already in the HTML.
+Each of these is added by script on top of content that is already in the HTML, so nothing is lost without JavaScript.
 
-- **Timeline filter** (overview page). Buttons filter the timeline by layer and person: protocols and Vint Cerf, the web and Tim Berners-Lee, search and Google. Buttons report their state with `aria-pressed`, a screen-reader message announces how many entries are shown, and the small entry animation is switched off when the visitor prefers reduced motion. Without JavaScript the buttons are not shown and every entry is visible.
-- **Glossary popovers** (all pages). Terms such as TCP/IP, HTTP, HTML, URL, hypertext, packet switching and PageRank are marked with a dotted underline. In browsers with the native Popover API they open a short definition in place. Elsewhere, or without JavaScript, they are ordinary links to the glossary at the end of the page.
+- **Watch a message travel** (`vint.html`, `packets.js`). A message is split into numbered packets that take different routes through a small router network, arrive out of order and are put back in sequence. With reduced motion, or the step toggle, the animation becomes a series of steps.
+- **Follow links through documents** (`tim.html`, `hypertext.js`). A small graph of linked documents, made from text already on the page, shows what hypertext meant in practice.
+- **Open a web page step by step** (overview, `walk.js`). The plain list of what happens when you load a page becomes a row of stations with one step shown at a time, previous/next buttons and arrow keys.
+- **Filter the timeline** (overview, `script.js`) by layer and person. Buttons report their state with `aria-pressed` and a screen-reader message says how many entries are shown.
+- **Look up a term in place.** Dotted terms such as TCP/IP, HTTP, URL, packet switching and PageRank open a short definition with the native Popover API, and fall back to links into the glossary. The glossary itself gets a live search field.
 
 ## How it is built
 
-Plain HTML, one stylesheet (`main.css`) and one small script (`script.js`, no dependencies, no build step). Images are local JPEGs. The site deploys to GitHub Pages from `master` through `.github/workflows/deploy.yml`.
+Plain HTML, one stylesheet (`main.css`) and a handful of small dependency-free scripts. No build step. Images are local JPEGs. `motion.js` adds a visible motion switch that follows the system's reduced-motion setting by default and remembers an override; `tests/motion.mjs` checks it. The site deploys to GitHub Pages from `master` through `.github/workflows/deploy.yml`.
 
-To run it locally, open `index.html` in a browser, or serve the folder so paths behave as on Pages:
+To run it locally:
 
 ```sh
 python3 -m http.server 8000
@@ -42,6 +45,10 @@ python3 -m http.server 8000
 ## Sources
 
 Dates and claims should be traceable to a primary or authoritative source: CERN, W3C, the RFC Editor, the Internet Society, the original papers, or the company's own history page. The Wikipedia links on the profiles remain as an easy first step, but they are not the source for anything new. Every external link was checked to resolve when it was added. If you spot an error, open an issue with the source that corrects it.
+
+## What it does not cover
+
+It is three profiles, not a history of the internet. Many people who shaped these layers are mentioned briefly or not at all.
 
 ## License
 
