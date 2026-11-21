@@ -457,3 +457,12 @@
   .wk-num { inline-size: 2rem; block-size: 2rem; }
   .wk-track { inset-block-start: 1rem; }
 }
+
+/* Footnotes and source list */
+.fn { font-size: .7em; line-height: 0; margin-inline-start: .15em; }
+.fn-ref { text-decoration: none; padding-inline: .1em; }
+.fn-ref:target, .sources li:target { outline: 2px solid currentColor; outline-offset: 2px; }
+.sources { max-width: 72rem; margin: 3rem auto; padding-inline: 1.25rem; }
+.sources ol { padding-inline-start: 1.5rem; display: grid; gap: .6rem; }
+.sources li { overflow-wrap: anywhere; }
+.fn-back { margin-inline-start: .25em; }
