@@ -85,5 +85,38 @@ function initGlossary(root = document) {
   }
 }
 
+// Glossary search: the field is added by script, so without JavaScript the
+// glossary stays a plain list with nothing that does not work.
+function initGlossarySearch(root = document) {
+  const section = root.querySelector(".glossary");
+  const list = section?.querySelector("dl");
+  if (!list) return;
+  const entries = [...list.querySelectorAll(":scope > div")];
+  const label = document.createElement("label");
+  label.className = "glossary-search";
+  const text = document.createElement("span");
+  text.textContent = "Sök i ordlistan";
+  const input = document.createElement("input");
+  input.type = "search";
+  input.autocomplete = "off";
+  const status = document.createElement("p");
+  status.className = "visually-hidden";
+  status.setAttribute("role", "status");
+  label.append(text, input);
+  list.before(label, status);
+  const norm = (s) => s.toLocaleLowerCase("sv").normalize("NFC");
+  input.addEventListener("input", () => {
+    const q = norm(input.value.trim());
+    let shown = 0;
+    for (const entry of entries) {
+      const match = !q || norm(entry.textContent).includes(q);
+      entry.hidden = !match;
+      if (match) shown += 1;
+    }
+    status.textContent = `${shown} av ${entries.length} begrepp visas.`;
+  });
+}
+
 initTimelineFilter();
 initGlossary();
+initGlossarySearch();
