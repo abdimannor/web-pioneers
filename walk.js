@@ -1,6 +1,12 @@
 // "Vad händer när du öppnar en webbsida?": the steps are a plain list
 // without JavaScript. Here they become a stepped diagram: one row of
 // stations, one step shown at a time, previous/next and arrow keys.
+// UI strings: Swedish defaults, overridden by window.WP_I18N.walk.
+const T = Object.assign({
+  rail: "Välj steg", prev: "Föregående", next: "Nästa",
+  status: (n, total, name) => `Steg ${n} av ${total}: ${name}`,
+}, (window.WP_I18N || {}).walk);
+
 function initWalk() {
   const root = document.getElementById("sidvisning");
   if (!root) return;
@@ -10,7 +16,7 @@ function initWalk() {
   const rail = document.createElement("div");
   rail.className = "wk-rail";
   rail.setAttribute("role", "group");
-  rail.setAttribute("aria-label", "Välj steg");
+  rail.setAttribute("aria-label", T.rail);
   const track = document.createElement("span");
   track.className = "wk-track";
   track.setAttribute("aria-hidden", "true");
@@ -40,13 +46,13 @@ function initWalk() {
   nav.className = "wk-nav";
   const prev = document.createElement("button");
   prev.type = "button";
-  prev.textContent = "Föregående";
+  prev.textContent = T.prev;
   const status = document.createElement("p");
   status.className = "wk-status";
   status.setAttribute("aria-live", "polite");
   const next = document.createElement("button");
   next.type = "button";
-  next.textContent = "Nästa";
+  next.textContent = T.next;
   nav.append(prev, status, next);
 
   let at = 0;
@@ -60,7 +66,7 @@ function initWalk() {
     fill.style.setProperty("--p", at / (steps.length - 1));
     prev.disabled = at === 0;
     next.disabled = at === steps.length - 1;
-    status.textContent = `Steg ${at + 1} av ${steps.length}: ${steps[at].querySelector("h3").textContent}`;
+    status.textContent = T.status(at + 1, steps.length, steps[at].querySelector("h3").textContent);
     if (focus) dots[at].focus();
   }
   prev.addEventListener("click", () => go(at - 1));

@@ -15,6 +15,11 @@ const DOCS = {
   url: { title: "URL", from: ["#ord-url"], at: [500, 260] },
   standarder: { title: "Öppna standarder", from: ["h3", "Öppna standarder"], at: [300, 305] },
 };
+// UI strings: Swedish defaults, overridden by window.WP_I18N.hypertext.
+// `docs` may replace a document's title and the page heading its text is read from.
+const T = Object.assign({ next: "Länkar vidare:", docs: {} }, (window.WP_I18N || {}).hypertext);
+for (const [id, over] of Object.entries(T.docs)) Object.assign(DOCS[id], over);
+
 const LINKS = {
   www: ["hypertext", "html", "http", "url", "standarder"],
   hypertext: ["enquire", "html", "www"],
@@ -94,7 +99,7 @@ function init() {
     p.textContent = doc.text;
     const label = document.createElement("p");
     label.className = "ht-label";
-    label.textContent = "Länkar vidare:";
+    label.textContent = T.next;
     const ul = document.createElement("ul");
     for (const target of LINKS[id]) {
       const li = document.createElement("li");
