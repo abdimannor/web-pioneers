@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Pioneers</title>
+  <meta name="description" content="A web history microsite about the protocols, the ideas and the searchability that shaped the internet and the web.">
+  <link rel="canonical" href="https://abdimannor.github.io/web-pioneers/en/">
+  <link rel="alternate" hreflang="sv" href="https://abdimannor.github.io/web-pioneers/">
+  <link rel="alternate" hreflang="en" href="https://abdimannor.github.io/web-pioneers/en/">
+  <link rel="alternate" hreflang="x-default" href="https://abdimannor.github.io/web-pioneers/">
+  <meta property="og:title" content="Web Pioneers">
+  <meta property="og:description" content="A web history microsite about the protocols, the ideas and the searchability that shaped the internet and the web.">
+  <meta property="og:url" content="https://abdimannor.github.io/web-pioneers/en/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://abdimannor.github.io/web-pioneers/tim.jpg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="Tim Berners-Lee">
+  <meta name="twitter:image" content="https://abdimannor.github.io/web-pioneers/tim.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Web Pioneers">
+  <meta name="twitter:description" content="A web history microsite about the protocols, the ideas and the searchability that shaped the internet and the web.">
+  <meta name="theme-color" content="#111827">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../main.css">
+  <script src="i18n.js"></script>
+  <script src="../motion.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">Web Pioneers</a>
+      <ul>
+        <li><a href="index.html" aria-current="page">Overview</a></li>
+        <li><a href="tim.html">Tim Berners-Lee</a></li>
+        <li><a href="vint.html">Vint Cerf</a></li>
+        <li><a href="google.html">Google</a></li>
+        <li class="lang-switch"><a href="../index.html" lang="sv" hreflang="sv"><span aria-hidden="true">SV</span><span class="visually-hidden">Svenska</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">The internet, the web and searchability</p>
+      <h1>Three steps towards the web we use every day.</h1>
+      <p class="lead">From the protocols that connected networks, to the <a class="term" href="#ord-hypertext" data-term="ord-hypertext">hypertext</a> that made information linkable, to the search engines that made it possible to find your way around the web.</p>
+    </section>
+
+    <section class="timeline-block" aria-labelledby="timeline-title">
+      <h2 id="timeline-title" class="visually-hidden">Web history timeline</h2>
+      <div class="timeline-filter" data-timeline-filter hidden>
+        <p id="timeline-filter-label" class="timeline-filter-label">Show:</p>
+        <div role="group" aria-labelledby="timeline-filter-label">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="protokoll" aria-pressed="false">Protocols · Vint Cerf</button>
+          <button type="button" data-filter="webben" aria-pressed="false">The web · Tim Berners-Lee</button>
+          <button type="button" data-filter="sok" aria-pressed="false">Search · Google</button>
+        </div>
+        <p class="visually-hidden" aria-live="polite" data-timeline-status></p>
+      </div>
+      <ol class="timeline" data-timeline>
+        <li data-theme="protokoll">
+          <time datetime="1974">1974</time>
+          <h3>TCP/IP takes shape</h3>
+          <p>Vint Cerf and Bob Kahn describe a model in which separate networks can exchange data without being built the same way.</p>
+        </li>
+        <li data-theme="protokoll">
+          <time datetime="1983">1983</time>
+          <h3>ARPANET switches to TCP/IP</h3>
+          <p>On 1 January 1983 ARPANET moves over to TCP/IP, following the transition plan in <a href="https://www.rfc-editor.org/rfc/rfc801" rel="noopener">RFC 801</a>.</p>
+        </li>
+        <li data-theme="protokoll">
+          <time datetime="1987-11">1987</time>
+          <h3>DNS is standardised</h3>
+          <p>In November 1987 <a href="https://www.rfc-editor.org/rfc/rfc1034" rel="noopener">RFC 1034</a> and <a href="https://www.rfc-editor.org/rfc/rfc1035" rel="noopener">RFC 1035</a> are published, describing the Domain Name System: the naming system that translates host names into IP addresses.</p>
+        </li>
+        <li data-theme="webben">
+          <time datetime="1989">1989</time>
+          <h3>The web is proposed</h3>
+          <p>Tim Berners-Lee sets out the idea of a global hypertext system in which documents can link to each other.</p>
+        </li>
+        <li data-theme="webben" data-draft>
+          <time datetime="1991-08-06">1991</time>
+          <h3>The web goes online</h3>
+          <p>On 6 August 1991 the web's files are put online and announced in the newsgroup alt.hypertext, according to <a href="http://info.cern.ch/hypertext/WWW/History.html" rel="noopener">CERN's own timeline of the project</a>. The software included a web server, a simple browser and a library for developers (<a href="https://web.archive.org/web/20240122051313/https://home.cern/science/computing/birth-web/short-history-web" rel="noopener">CERN, archived page</a>).</p>
+        </li>
+        <li data-theme="webben">
+          <time datetime="1993">1993</time>
+          <h3>CERN releases the web freely</h3>
+          <p>On 30 April 1993 <a href="https://home.cern/news/news/computing/30-years-free-and-open-web" rel="noopener">CERN makes the web's software free</a> for anyone to use and build on.</p>
+        </li>
+        <li data-theme="webben">
+          <time datetime="1993-12">1993</time>
+          <h3>Mosaic reaches a wide audience</h3>
+          <p>According to <a href="https://www.ncsa.illinois.edu/research/project-highlights/ncsa-mosaic/" rel="noopener">NCSA</a>, Mosaic was the first published browser that automatically displayed images together with text. In December 1993 it was downloaded more than 5,000 times a month.</p>
+        </li>
+        <li data-theme="webben">
+          <time datetime="1994">1994</time>
+          <h3>W3C is founded</h3>
+          <p>Berners-Lee founds the <a href="https://www.w3.org/about/history/" rel="noopener">World Wide Web Consortium</a> to develop open web standards.</p>
+        </li>
+        <li data-theme="sok">
+          <time datetime="1998">1998</time>
+          <h3>Search becomes infrastructure</h3>
+          <p>Google shows how links, indexing and ranking can make a growing web searchable.</p>
+        </li>
+        <li data-theme="sok">
+          <time datetime="1998">1998</time>
+          <h3>The paper on Google and PageRank</h3>
+          <p>Sergey Brin and Lawrence Page describe the Google prototype in <a href="https://doi.org/10.1016/S0169-7552(98)00110-X" rel="noopener">The Anatomy of a Large-Scale Hypertextual Web Search Engine</a>, a search engine that uses the link structure of hypertext to give better search results.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="profile-grid" aria-label="Profiles">
+      <article class="profile-card">
+        <img class="portrait-tim" src="../tim.jpg" alt="Tim Berners-Lee" width="800" height="800" loading="eager" decoding="async">
+        <div>
+          <p class="eyebrow">The web</p>
+          <h2>Tim Berners-Lee</h2>
+          <p>Turned the internet into a readable information space of documents, addresses and links that anyone could openly build on.</p>
+          <a href="tim.html">Read the profile</a>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <img class="portrait-vint" src="../vint.jpg" alt="Vint Cerf" width="800" height="800" loading="lazy" decoding="async">
+        <div>
+          <p class="eyebrow">Internet protocols</p>
+          <h2>Vint Cerf</h2>
+          <p>Helped shape TCP/IP, the model that let the internet grow as a network of networks.</p>
+          <a href="vint.html">Read the profile</a>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <img src="../google.jpg" alt="Two men with folded arms in front of yellow server racks with Google signs" width="910" height="683" loading="lazy" decoding="async">
+        <div>
+          <p class="eyebrow">Searchability</p>
+          <h2>Google</h2>
+          <p>Changed how people find information by turning links, indexes and relevance into everyday navigation.</p>
+          <a href="google.html">Read the profile</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="exhibit-section" aria-labelledby="exhibit-title">
+      <div class="section-heading">
+        <p class="eyebrow">Web history overview</p>
+        <h2 id="exhibit-title">Three layers that build on each other.</h2>
+      </div>
+      <div class="comparison-grid">
+        <article>
+          <span>01</span>
+          <h3>Protocols</h3>
+          <p><a class="term" href="#ord-tcpip" data-term="ord-tcpip">TCP/IP</a> lets networks talk to each other without everything having to be controlled from a single place.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Documents</h3>
+          <p>The World Wide Web makes information linkable through <a class="term" href="#ord-html" data-term="ord-html">HTML</a>, <a class="term" href="#ord-http" data-term="ord-http">HTTP</a> and <a class="term" href="#ord-url" data-term="ord-url">URLs</a>.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Navigation</h3>
+          <p>Search makes the web's growing mass of information usable in everyday life.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Standards</h3>
+          <p>Open rules let many players build further without asking the same owner for permission.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="walk" id="sidvisning" aria-labelledby="walk-title">
+      <div class="section-heading">
+        <p class="eyebrow">Step by step</p>
+        <h2 id="walk-title">What happens when you open a web page?</h2>
+      </div>
+      <p class="walk-intro">Seven steps from the address bar to a finished page. The colour shows which of three layers the step belongs to: protocols, documents or navigation.</p>
+      <ol class="wk-list">
+        <li id="wk-url" class="wk-step" data-tone="webben">
+          <p class="wk-layer">1. Documents</p>
+          <h3>The URL is typed in</h3>
+          <p>The browser splits the address into its parts: scheme (for example https), host name and path. The host name says which computer to contact, the path which resource is requested.</p>
+          <p class="wk-tie"><a href="tim.html">URLs are part of the foundation of the web, see Tim Berners-Lee.</a></p>
+          <p class="wk-src">Sources: <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986: URI syntax</a></p>
+        </li>
+        <li id="wk-dns" class="wk-step" data-tone="protokoll">
+          <p class="wk-layer">2. Protocols</p>
+          <h3>DNS lookup</h3>
+          <p>Computers on the internet are reached by IP addresses, not names. The browser therefore looks up the host name in DNS, the internet's naming system, to get its IP address.</p>
+          <p class="wk-tie"><a href="vint.html">DNS builds on the internet's protocols, see Vint Cerf.</a></p>
+          <p class="wk-src">Sources: <a href="https://www.rfc-editor.org/rfc/rfc1034">RFC 1034: DNS concepts</a>, <a href="https://www.rfc-editor.org/rfc/rfc1035">RFC 1035: DNS specification</a></p>
+        </li>
+        <li id="wk-tcp" class="wk-step" data-tone="protokoll">
+          <p class="wk-layer">3. Protocols</p>
+          <h3>TCP connection</h3>
+          <p>The browser opens a TCP connection to the IP address with a three-way handshake: SYN, SYN-ACK, ACK. With https a TLS handshake follows, in which the two sides agree on the keys that encrypt the traffic. The newer version HTTP/3 uses QUIC over UDP instead of TCP.</p>
+          <p class="wk-tie"><a href="vint.html">TCP/IP is Vint Cerf's part of the story.</a></p>
+          <p class="wk-src">Sources: <a href="https://www.rfc-editor.org/rfc/rfc9293">RFC 9293: TCP</a>, <a href="https://www.rfc-editor.org/rfc/rfc8446">RFC 8446: TLS 1.3</a>, <a href="https://www.rfc-editor.org/rfc/rfc9114">RFC 9114: HTTP/3</a></p>
+        </li>
+        <li id="wk-req" class="wk-step" data-tone="webben">
+          <p class="wk-layer">4. Documents</p>
+          <h3>HTTP request</h3>
+          <p>Over the connection the browser sends an HTTP request, for example the GET method with the path, and the host name in the Host header field.</p>
+          <p class="wk-tie"><a href="tim.html">HTTP was created for the web, see Tim Berners-Lee.</a></p>
+          <p class="wk-src">Sources: <a href="https://www.rfc-editor.org/rfc/rfc9110">RFC 9110: HTTP semantics</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages">MDN: HTTP messages</a></p>
+        </li>
+        <li id="wk-res" class="wk-step" data-tone="webben">
+          <p class="wk-layer">5. Documents</p>
+          <h3>HTTP response</h3>
+          <p>The server replies with a status code (200 means OK, 404 that the server did not find the resource), header fields such as Content-Type and the content itself, often an HTML document.</p>
+          <p class="wk-tie"><a href="tim.html">The server and the browser use the same open protocol.</a></p>
+          <p class="wk-src">Sources: <a href="https://www.rfc-editor.org/rfc/rfc9110#name-status-codes">RFC 9110: status codes</a></p>
+        </li>
+        <li id="wk-html" class="wk-step" data-tone="webben">
+          <p class="wk-layer">6. Documents</p>
+          <h3>The HTML is parsed</h3>
+          <p>The browser parses the HTML code and builds a document tree (DOM). Style sheets, images and scripts that the document points to are fetched with new requests, and the page is drawn.</p>
+          <p class="wk-tie"><a href="tim.html">HTML is the document format of the web, see Tim Berners-Lee.</a></p>
+          <p class="wk-src">Sources: <a href="https://www.w3.org/html/">W3C: HTML</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work">MDN: How browsers work</a></p>
+        </li>
+        <li id="wk-links" class="wk-step" data-tone="sok">
+          <p class="wk-layer">7. Navigation</p>
+          <h3>Links are followed</h3>
+          <p>A link points to a new URL. Click it and the process starts again from the first step. Search engines do the same on a large scale: they follow links to find pages, and PageRank used the links to weigh pages against each other.</p>
+          <p class="wk-tie"><a href="google.html">Following links on a large scale is Google's part of the story.</a></p>
+          <p class="wk-src">Sources: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a">MDN: the a element</a></p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="quality-note" aria-labelledby="quality-title">
+      <div>
+        <p class="eyebrow">Reading order</p>
+        <h2 id="quality-title">Start with the layers, then go into the profiles.</h2>
+      </div>
+      <ul>
+        <li>The overview shows how protocols, documents and search build on each other.</li>
+        <li>The profile pages explain each part through people, ideas and technical building blocks.</li>
+        <li>The source links lead further for anyone who wants to read more after the summary.</li>
+      </ul>
+    </section>
+    <section class="glossary" aria-labelledby="glossary-title">
+      <p class="eyebrow">Glossary</p>
+      <h2 id="glossary-title">Technical terms on this page</h2>
+      <dl>
+        <div id="ord-tcpip">
+          <dt>TCP/IP</dt>
+          <dd>The family of protocols the internet is built on. IP gives data packets addresses and routes them between networks; TCP keeps track of delivery so that data arrives complete and in the right order.</dd>
+        </div>
+        <div id="ord-hypertext">
+          <dt>Hypertext</dt>
+          <dd>Text with links to other texts, so that the reader can jump between documents instead of reading in a fixed order.</dd>
+        </div>
+        <div id="ord-html">
+          <dt>HTML</dt>
+          <dd>HyperText Markup Language. The markup language that gives a web page its structure: headings, paragraphs, images and links.</dd>
+        </div>
+        <div id="ord-http">
+          <dt>HTTP</dt>
+          <dd>Hypertext Transfer Protocol. The rules for how a browser requests a resource and how a web server sends it back.</dd>
+        </div>
+        <div id="ord-url">
+          <dt>URL</dt>
+          <dd>Uniform Resource Locator. The address of a resource on the web, for example https://www.w3.org/.</dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <script type="module" src="../script.js"></script>
+  <script type="module" src="../walk.js"></script>
+</body>
+</html>
