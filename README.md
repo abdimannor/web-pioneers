@@ -25,7 +25,7 @@ Each profile ends with primary and authoritative sources, and every page ends wi
 
 Each of these is added by script on top of content that is already in the HTML, so nothing is lost without JavaScript.
 
-- **Watch a message travel** (`vint.html`, `packets.js`). A message is split into numbered packets that take different routes through a small router network, arrive out of order and are put back in sequence. With reduced motion, or the step toggle, the animation becomes a series of steps.
+- **Watch a message travel** (`vint.html`, `packets.js`). A message is split into numbered packets that take different routes through a small router network, arrive out of order and are put back in sequence. With motion off, or the step toggle, the animation becomes a series of steps.
 - **Follow links through documents** (`tim.html`, `hypertext.js`). A small graph of linked documents, made from text already on the page, shows what hypertext meant in practice.
 - **Open a web page step by step** (overview, `walk.js`). The plain list of what happens when you load a page becomes a row of stations with one step shown at a time, previous/next buttons and arrow keys.
 - **Filter the timeline** (overview, `script.js`) by layer and person. Buttons report their state with `aria-pressed` and a screen-reader message says how many entries are shown.
@@ -33,7 +33,7 @@ Each of these is added by script on top of content that is already in the HTML, 
 
 ## How it is built
 
-Plain HTML, one stylesheet (`main.css`) and a handful of small dependency-free scripts. No build step. Images are local JPEGs. `motion.js` adds a visible motion switch that follows the system's reduced-motion setting by default and remembers an override; `tests/motion.mjs` checks it. The site deploys to GitHub Pages from `master` through `.github/workflows/deploy.yml`.
+Plain HTML, one stylesheet (`main.css`) and a handful of small dependency-free scripts. No build step. Images are local JPEGs. `motion.js` adds a pause button: motion is on by default, and turning it off is remembered; `tests/motion.mjs` checks it. The site deploys to GitHub Pages from `master` through `.github/workflows/deploy.yml`.
 
 To run it locally:
 
