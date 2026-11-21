@@ -31,6 +31,15 @@ const CHUNK = 4;
 const GAP = 0.45; // time between departures
 const STEP = 0.5; // time per step in step mode
 
+// UI strings: Swedish defaults, overridden by window.WP_I18N.packets.
+const T = Object.assign({
+  sender: "Avsändare", receiver: "Mottagare",
+  arrived: (n, total) => `Paket ${n} av ${total} har kommit fram.`,
+  order: (order) => `Ankomstordning: ${order}. TCP sorterar efter nummer.`,
+  done: "Alla paket har kommit fram och meddelandet är ihopsatt.",
+  split: (n, size) => `Meddelandet delas i ${n} paket om ${size} tecken vardera.`,
+}, (window.WP_I18N || {}).packets);
+
 const delay = (a, b) => DELAY[`${a}-${b}`] ?? DELAY[`${b}-${a}`];
 const el = (name, attrs = {}) => {
   const node = document.createElementNS(NS, name);
@@ -71,7 +80,7 @@ function init() {
     const g = el("g", { class: end ? "pk-host" : "pk-router", transform: `translate(${x} ${y})` });
     g.append(end ? el("rect", { x: -34, y: -24, width: 68, height: 48, rx: 6 }) : el("circle", { r: 22 }));
     const t = el("text", { "text-anchor": "middle", dy: "0.35em" });
-    t.textContent = id === "A" ? "Avsändare" : id === "B" ? "Mottagare" : id;
+    t.textContent = id === "A" ? T.sender : id === "B" ? T.receiver : id;
     if (end) t.setAttribute("class", "pk-host-label");
     g.append(t);
     nodes.append(g);
@@ -132,15 +141,15 @@ function init() {
         li.firstChild.textContent = p.n;
         li.lastChild.textContent = p.chunk.replaceAll(" ", "\u2423");
         tray.append(li);
-        status.textContent = `Paket ${p.n} av ${packets.length} har kommit fram.`;
+        status.textContent = T.arrived(p.n, packets.length);
       }
     }
     if (packets.length && packets.every((p) => p.arrived) && !out.dataset.done) {
       const order = [...tray.children].map((li) => li.firstChild.textContent).join(", ");
       out.dataset.done = "1";
       out.textContent = packets.map((p) => p.chunk).join("");
-      root.querySelector(".pk-order").textContent = `Ankomstordning: ${order}. TCP sorterar efter nummer.`;
-      status.textContent = "Alla paket har kommit fram och meddelandet är ihopsatt.";
+      root.querySelector(".pk-order").textContent = T.order(order);
+      status.textContent = T.done;
       [...tray.children]
         .sort((a, b) => Number(a.firstChild.textContent) - Number(b.firstChild.textContent))
         .forEach((li, i) => { li.style.setProperty("--slot", i); tray.append(li); });
@@ -170,7 +179,7 @@ function init() {
     packets = plan(text);
     total = Math.max(...packets.map((p) => p.arrive));
     t = 0;
-    status.textContent = `Meddelandet delas i ${packets.length} paket om ${CHUNK} tecken vardera.`;
+    status.textContent = T.split(packets.length, CHUNK);
     stepBtn.disabled = !modeBox.checked;
     render();
     if (!modeBox.checked) {

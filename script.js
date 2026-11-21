@@ -2,7 +2,14 @@
 // Without JavaScript every timeline entry is visible and glossary terms
 // are plain links to the glossary at the end of the page.
 
-const STATUS = (shown, total) => `${shown} av ${total} händelser visas.`;
+// UI strings: Swedish defaults, overridden per language by window.WP_I18N.script.
+const T = Object.assign({
+  status: (shown, total) => `${shown} av ${total} händelser visas.`,
+  close: "Stäng",
+  search: "Sök i ordlistan",
+  terms: (shown, total) => `${shown} av ${total} begrepp visas.`,
+  locale: "sv",
+}, (window.WP_I18N || {}).script);
 
 function initTimelineFilter(root = document) {
   const filter = root.querySelector("[data-timeline-filter]");
@@ -24,7 +31,7 @@ function initTimelineFilter(root = document) {
     for (const button of buttons) {
       button.setAttribute("aria-pressed", String(button.dataset.filter === value));
     }
-    if (status) status.textContent = STATUS(shown, items.length);
+    if (status) status.textContent = T.status(shown, items.length);
   };
 
   filter.addEventListener("click", (event) => {
@@ -55,7 +62,7 @@ function buildPopover(entry, id) {
 
   const close = document.createElement("button");
   close.type = "button";
-  close.textContent = "Stäng";
+  close.textContent = T.close;
   close.setAttribute("popovertarget", id);
   close.setAttribute("popovertargetaction", "hide");
 
@@ -95,7 +102,7 @@ function initGlossarySearch(root = document) {
   const label = document.createElement("label");
   label.className = "glossary-search";
   const text = document.createElement("span");
-  text.textContent = "Sök i ordlistan";
+  text.textContent = T.search;
   const input = document.createElement("input");
   input.type = "search";
   input.autocomplete = "off";
@@ -104,7 +111,7 @@ function initGlossarySearch(root = document) {
   status.setAttribute("role", "status");
   label.append(text, input);
   list.before(label, status);
-  const norm = (s) => s.toLocaleLowerCase("sv").normalize("NFC");
+  const norm = (s) => s.toLocaleLowerCase(T.locale).normalize("NFC");
   input.addEventListener("input", () => {
     const q = norm(input.value.trim());
     let shown = 0;
@@ -113,7 +120,7 @@ function initGlossarySearch(root = document) {
       entry.hidden = !match;
       if (match) shown += 1;
     }
-    status.textContent = `${shown} av ${entries.length} begrepp visas.`;
+    status.textContent = T.terms(shown, entries.length);
   });
 }
 
